@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="factura">
+            <h2><span jhiTranslate="tiendaApp.facturaFactura.detail.title">Factura</span> {{ factura.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tiendaApp.facturaFactura.idFactura">Id Factura</span></dt>
+                <dd>
+                    <span>{{ factura.idFactura }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.facturaFactura.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{ factura.fecha }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.facturaFactura.detalles">Detalles</span></dt>
+                <dd>
+                    <span>{{ factura.detalles }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.facturaFactura.estado">Estado</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tiendaApp.EstadoFactura.' + factura.estado }}">{{ factura.estado }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.facturaFactura.metodoPago">Metodo Pago</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tiendaApp.MetodoPago.' + factura.metodoPago }}">{{ factura.metodoPago }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.facturaFactura.fechaPago">Fecha Pago</span></dt>
+                <dd>
+                    <span>{{ factura.fechaPago }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.facturaFactura.total">Total</span></dt>
+                <dd>
+                    <span>{{ factura.total }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.facturaFactura.idPedidoProducto">Id Pedido Producto</span></dt>
+                <dd>
+                    <span>{{ factura.idPedidoProducto }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/factura', factura.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

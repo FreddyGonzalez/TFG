@@ -1,0 +1,11 @@
+id;id_factura;fecha;detalles;estado;metodo_pago;fecha_pago;total;id_pedido_producto
+1;CFA Franc BEAC;2021-03-06T23:49:53;leverage;CANCELADO;PAYPAL;2021-03-07T10:30:31;39532;23235
+2;yellow Oklahoma Uganda Shilling;2021-03-07T15:08:26;Officer Small Plastic Fish empower;PAGADO;PAYPAL;2021-03-06T22:26:47;60843;99504
+3;back-end Practical Soft Soap Phased;2021-03-07T07:23:39;Future Maine;CANCELADO;PAYPAL;2021-03-06T19:43:22;11716;22553
+4;channels;2021-03-07T17:46:26;Brazil;EMITIDO;TARJETA_CREDITO;2021-03-07T12:37:28;34310;65060
+5;emulation multi-tasking;2021-03-07T10:28:59;transparent;CANCELADO;PAYPAL;2021-03-07T00:31:04;99405;69025
+6;invoice Ergonomic Cotton Shirt;2021-03-07T10:50:04;input virtual Health;PAGADO;TARJETA_CREDITO;2021-03-07T03:45:35;23095;42472
+7;withdrawal even-keeled Outdoors;2021-03-07T14:08:41;empower;CANCELADO;TARJETA_CREDITO;2021-03-07T12:29:22;24999;58522
+8;multimedia;2021-03-07T09:37:12;dedicated Bouvet Island (Bouvetoya) mint green;EMITIDO;TARJETA_CREDITO;2021-03-07T14:24:30;76784;54912
+9;back-end payment;2021-03-07T11:58:18;input end-to-end;CANCELADO;PAYPAL;2021-03-07T16:08:16;52583;30555
+10;Intelligent Metal Salad clear-thinking world-class;2021-03-07T07:56:59;Granite scalable;PAGADO;TARJETA_CREDITO;2021-03-07T11:45:33;31563;61788

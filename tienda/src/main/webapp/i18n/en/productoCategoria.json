@@ -1,0 +1,29 @@
+{
+  "tiendaApp": {
+    "productoCategoria": {
+      "home": {
+        "title": "Categorias",
+        "createLabel": "Create a new Categoria",
+        "createOrEditLabel": "Create or edit a Categoria",
+        "search": "Search for Categoria",
+        "notFound": "No Categorias found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Categoria {{ id }}?"
+      },
+      "detail": {
+        "title": "Categoria"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "producto": "Producto"
+    }
+  },
+  "productoApp": {
+    "productoCategoria": {
+      "created": "A new Categoria is created with identifier {{ param }}",
+      "updated": "A Categoria is updated with identifier {{ param }}",
+      "deleted": "A Categoria is deleted with identifier {{ param }}"
+    }
+  }
+}

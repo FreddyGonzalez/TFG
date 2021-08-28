@@ -1,0 +1,129 @@
+<div *ngIf="producto">
+    <div class="row">
+        <div class="col-8">
+            <div >
+                <h2><span jhiTranslate="tiendaApp.productoProducto.detail.title">Producto</span> {{ producto.id }}</h2>
+    
+                <hr>
+    
+                <jhi-alert-error></jhi-alert-error>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-3 justify-content-center" *ngIf="producto.imagen">
+            <ngb-carousel>
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img src="images/jhipster_family_member_1_head-192.png" alt="Angular Carousel 1">
+                  </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img src="images/jhipster_family_member_2_head-192.png" alt="Angular Carousel 2">
+                  </div>
+                </ng-template>
+              </ngb-carousel>
+        </div>
+        <div class="col-md-6 d-flex justify-content-start">
+            <div class="col col-xs-12 ">
+                <div class="d-inline-flex w-100 justify-content-between mt-5">
+                    <h3>{{ producto.nombre }}</h3>
+                </div>
+                <small class="mb-1">{{ producto.descripcion }}</small>
+                <p class="mb-1">Precio: {{ producto.precio | currency: 'EUR' }}</p>
+                <small>
+                Size:
+                <span jhiTranslate="{{ 'tiendaApp.Talla.' + producto.talla }}">{{ producto.talla }}</span>
+                </small>
+                <div class="d-inline-flex w-100 justify-content-between">
+                    <button type="submit" [routerLink]="['/producto', producto.id, 'view']" class="btn btn-info btn-sm">
+                        <fa-icon icon="eye"></fa-icon>
+                        <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h5>hola mundo</h5>
+            <div class="list-group">
+                <a class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let comentario of comentarios">
+                    <div class="row">
+                        <h5>{{ comentario.descripcion }}</h5>
+                    </div>
+                </a>
+            </div>
+    </div>
+
+
+    <form>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tiendaApp.productoProducto.detail.review" for="field_comentario">Opiniones</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+    </form>
+</div>
+
+
+
+
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="producto">
+            <h2><span jhiTranslate="tiendaApp.productoProducto.detail.title">Producto</span> {{ producto.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tiendaApp.productoProducto.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{ producto.nombre }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.productoProducto.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{ producto.descripcion }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.productoProducto.precio">Precio</span></dt>
+                <dd>
+                    <span>{{ producto.precio }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.productoProducto.talla">Talla</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tiendaApp.Talla.' + producto.talla }}">{{ producto.talla }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.productoProducto.imagen">Imagen</span></dt>
+                <dd>
+                    <div *ngIf="producto.imagen">
+                        <a (click)="openFile(producto.imagenContentType, producto.imagen)">
+                            <img [src]="'data:' + producto.imagenContentType + ';base64,' + producto.imagen" style="max-width: 100%;" alt="producto image"/>
+                        </a>
+                        {{ producto.imagenContentType }}, {{ byteSize(producto.imagen) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.productoProducto.categoria">Categoria</span></dt>
+                <dd>
+                    <div *ngIf="producto.categoria">
+                        <a [routerLink]="['/categoria', producto.categoria?.id, 'view']">{{ producto.categoria?.nombre }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/producto', producto.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
+

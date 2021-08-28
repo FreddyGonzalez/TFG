@@ -1,0 +1,30 @@
+{
+  "tiendaApp": {
+    "productoPedido": {
+      "home": {
+        "title": "Pedidos",
+        "createLabel": "Create a new Pedido",
+        "createOrEditLabel": "Create or edit a Pedido",
+        "search": "Search for Pedido",
+        "notFound": "No Pedidos found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Pedido {{ id }}?"
+      },
+      "detail": {
+        "title": "Pedido"
+      },
+      "idPedido": "Id Pedido",
+      "fechaPedido": "Fecha Pedido",
+      "estado": "Estado",
+      "articuloPedido": "Articulo Pedido"
+    }
+  },
+  "productoApp": {
+    "productoPedido": {
+      "created": "A new Pedido is created with identifier {{ param }}",
+      "updated": "A Pedido is updated with identifier {{ param }}",
+      "deleted": "A Pedido is deleted with identifier {{ param }}"
+    }
+  }
+}

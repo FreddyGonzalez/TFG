@@ -1,0 +1,32 @@
+{
+  "tiendaApp": {
+    "notificacionNotificacion": {
+      "home": {
+        "title": "Notificacions",
+        "createLabel": "Crear nuevo Notificacion",
+        "createOrEditLabel": "Crear o editar Notificacion",
+        "search": "Buscar Notificacion",
+        "notFound": "Ningún Notificacions encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Notificacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Notificacion"
+      },
+      "fecha": "Fecha",
+      "detalles": "Detalles",
+      "fechaEnvio": "Fecha Envio",
+      "tipo": "Tipo",
+      "clienteId": "Cliente Id",
+      "productoId": "Producto Id"
+    }
+  },
+  "notificacionApp": {
+    "notificacionNotificacion": {
+      "created": "Un nuevo Notificacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Notificacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Notificacion ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

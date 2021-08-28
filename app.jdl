@@ -1,0 +1,219 @@
+/* Aplicacion gateway tienda */
+application {
+  config {
+    baseName tienda
+    applicationType gateway
+    packageName com.tfg.tienda
+    serviceDiscoveryType eureka
+    authenticationType jwt
+    prodDatabaseType mysql
+    cacheProvider hazelcast
+    searchEngine elasticsearch
+    clientTheme lux
+    clientThemeVariant dark
+    buildTool maven
+    clientFramework angularX
+    useSass true
+    languages [es, en]
+    websocket spring-websocket
+    testFrameworks [protractor, cucumber]
+  }
+  entities *
+}
+
+/* Aplicacion producto */
+application {
+  config {
+    baseName producto,
+    applicationType microservice,
+    packageName com.tfg.producto,
+    serviceDiscoveryType eureka,
+    prodDatabaseType mysql,
+    buildTool maven,
+    serverPort 8081,
+    languages [es, en]
+  }
+  entities Producto, Categoria, Pedido, ArticuloPedido
+}
+
+/* Aplicacion factura */
+application {
+  config {
+    baseName factura,
+    applicationType microservice,
+    packageName com.tfg.factura,
+    serviceDiscoveryType eureka,
+    prodDatabaseType mysql,
+    buildTool maven,
+    serverPort 8082,
+    languages [es, en]
+  }
+  entities Factura, Envio
+}
+
+/* Notification microservice application */
+application {
+  config {
+    baseName notificacion,
+    applicationType microservice,
+    packageName com.tfg.notificacion,
+    serviceDiscoveryType eureka,
+    prodDatabaseType mysql,
+    cacheProvider hazelcast,
+    buildTool maven,
+    serverPort 8083,
+    languages [es, en]
+  }
+  entities Notificacion
+}
+
+/* comentario microservice application */
+application {
+  config {
+    baseName comentario,
+    applicationType microservice,
+    packageName com.tfg.comentario,
+    serviceDiscoveryType eureka,
+    prodDatabaseType mysql,
+    cacheProvider hazelcast,
+    buildTool maven,
+    serverPort 8084,
+    languages [es, en]
+  }
+  entities Comentario
+}
+
+/* Entidades para la tienda */
+entity Cliente {
+    idCliente String required
+    nombre String required
+    apellido String required
+    genero Genero required
+    email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+    telefono String required
+    direccion String required
+    ciudad String required
+    pais String required
+}
+
+enum Genero {
+    HOMBRE, MUJER, OTRO
+}
+
+relationship OneToOne {
+    Cliente{user(login) required} to User
+}
+
+
+/* Entidades para el producto */
+entity Producto {
+    nombre String required
+    descripcion String
+    precio BigDecimal required min(0)
+    talla Talla required
+    imagen ImageBlob
+}
+
+enum Talla {
+    S, M, L, XL, XXL
+}
+
+entity Categoria {
+    nombre String required
+    descripcion String
+}
+
+entity Pedido {
+    idPedido String required
+    FechaPedido Instant required
+    estado EstadoPedido required
+}
+
+enum EstadoPedido {
+    COMPLETADO, PENDIENTE, CANCELADO
+}
+
+entity ArticuloPedido {
+    cantidad Integer required min(0)
+    total BigDecimal required min(0)
+    estado EstadoArticuloPedido required
+}
+
+enum EstadoArticuloPedido {
+    DISPONIBLE, FUERA_DE_STOCK, NO_DISPONIBLE
+}
+
+relationship ManyToOne {
+    ArticuloPedido{producto(nombre) required} to Producto
+}
+
+relationship OneToMany {
+    Pedido{articuloPedido} to ArticuloPedido{Pedido(idPedido) required}, 
+    Categoria{producto} to Producto{Categoria(nombre)}
+}
+
+microservice Producto, Pedido, Categoria, ArticuloPedido with producto
+
+/* Entities for Invoice microservice */
+
+entity Factura {
+    idFactura String required
+    Fecha Instant required
+    detalles String
+    estado EstadoFactura required
+    metodoPago MetodoPago required
+    fechaPago Instant required
+    total BigDecimal required
+    idPedidoProducto Long required
+}
+
+enum EstadoFactura {
+    PAGADO, EMITIDO, CANCELADO
+}
+
+enum MetodoPago {
+    TARJETA_CREDITO, PAYPAL
+}
+
+entity Envio {
+    idEnvio String
+    Fecha Instant required
+    detalles String
+}
+
+relationship OneToMany {
+    Factura{envio} to Envio{factura(idFactura) required}
+}
+
+microservice Factura, Envio with factura
+
+/* Entities for notification microservice */
+
+entity Notificacion {
+    Fecha Instant required
+    detalles String
+    FechaEnvio Instant required
+    tipo TipoNotificacion required
+    clienteId Long required
+    productoId Long required
+}
+
+enum TipoNotificacion {
+    EMAIL, SMS
+}
+
+microservice Notificacion with notificacion
+
+/* Entidades para comentarios*/
+entity Comentario {
+   idComentario String required
+   descripcion String required
+   productoId Long required
+}
+
+microservice Comentario with comentario
+
+/* General options */
+
+service * with serviceClass
+paginate Producto, Cliente, Pedido, Factura, Envio, ArticuloPedido, Comentario with pagination

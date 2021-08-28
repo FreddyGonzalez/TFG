@@ -1,0 +1,35 @@
+commonLabels:
+  app.kubernetes.io/genereted-by: JHipster
+
+namespace: jhipster
+
+resources:
+  - namespace.yml
+  # Individual apps
+  - comentario-k8s/comentario-deployment.yml
+  - comentario-k8s/comentario-service.yml
+  - comentario-k8s/comentario-mysql.yml
+  - factura-k8s/factura-deployment.yml
+  - factura-k8s/factura-service.yml
+  - factura-k8s/factura-mysql.yml
+  - notificacion-k8s/notificacion-deployment.yml
+  - notificacion-k8s/notificacion-service.yml
+  - notificacion-k8s/notificacion-mysql.yml
+  - producto-k8s/producto-deployment.yml
+  - producto-k8s/producto-service.yml
+  - producto-k8s/producto-mysql.yml
+  - tienda-k8s/tienda-deployment.yml
+  - tienda-k8s/tienda-service.yml
+  - tienda-k8s/tienda-mysql.yml
+  - tienda-k8s/tienda-elasticsearch.yml
+  # monitoring elk
+  - console-k8s/jhipster-elasticsearch.yml
+  - console-k8s/jhipster-logstash.yml
+  - console-k8s/jhipster-console.yml
+  - console-k8s/jhipster-dashboard-console.yml
+  - console-k8s/jhipster-zipkin.yml
+  # service discovery eureka/consul
+  - registry-k8s/jhipster-registry.yml
+  - registry-k8s/application-configmap.yml
+
+patchesJson6902:

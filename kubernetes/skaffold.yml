@@ -1,0 +1,24 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+    - image: gcr.io/jhipster-kubernetes-323618/comentario
+      context: ../comentario
+      jib: {}
+    - image: gcr.io/jhipster-kubernetes-323618/factura
+      context: ../factura
+      jib: {}
+    - image: gcr.io/jhipster-kubernetes-323618/notificacion
+      context: ../notificacion
+      jib: {}
+    - image: gcr.io/jhipster-kubernetes-323618/producto
+      context: ../producto
+      jib: {}
+    - image: gcr.io/jhipster-kubernetes-323618/tienda
+      context: ../tienda
+      jib: {}
+  tagPolicy:
+    envTemplate:
+      template: '{{.IMAGE_NAME}}:latest'
+deploy:
+  kustomize: {}

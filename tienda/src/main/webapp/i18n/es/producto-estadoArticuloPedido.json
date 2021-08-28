@@ -1,0 +1,10 @@
+{
+  "tiendaApp": {
+    "EstadoArticuloPedido": {
+      "null": "",
+      "DISPONIBLE": "DISPONIBLE",
+      "FUERA_DE_STOCK": "FUERA_DE_STOCK",
+      "NO_DISPONIBLE": "NO_DISPONIBLE"
+    }
+  }
+}

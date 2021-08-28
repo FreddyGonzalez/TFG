@@ -1,0 +1,31 @@
+{
+  "tiendaApp": {
+    "productoArticuloPedido": {
+      "home": {
+        "title": "Articulo Pedidos",
+        "createLabel": "Crear nuevo Articulo Pedido",
+        "createOrEditLabel": "Crear o editar Articulo Pedido",
+        "search": "Buscar Articulo Pedido",
+        "notFound": "Ningún Articulo Pedidos encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Articulo Pedido {{ id }}?"
+      },
+      "detail": {
+        "title": "Articulo Pedido"
+      },
+      "cantidad": "Cantidad",
+      "total": "Total",
+      "estado": "Estado",
+      "producto": "Producto",
+      "pedido": "Pedido"
+    }
+  },
+  "productoApp": {
+    "productoArticuloPedido": {
+      "created": "Un nuevo Articulo Pedido ha sido creado con el identificador {{ param }}",
+      "updated": "Un Articulo Pedido ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Articulo Pedido ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

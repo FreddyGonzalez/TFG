@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="comentario">
+            <h2><span jhiTranslate="tiendaApp.comentarioComentario.detail.title">Comentario</span> {{ comentario.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tiendaApp.comentarioComentario.idComentario">Id Comentario</span></dt>
+                <dd>
+                    <span>{{ comentario.idComentario }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.comentarioComentario.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{ comentario.descripcion }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.comentarioComentario.productoId">Producto Id</span></dt>
+                <dd>
+                    <span>{{ comentario.productoId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/comentario', comentario.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

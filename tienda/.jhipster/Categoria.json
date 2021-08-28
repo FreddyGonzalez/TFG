@@ -1,0 +1,34 @@
+{
+  "name": "Categoria",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "producto",
+      "otherEntityRelationshipName": "categoria",
+      "relationshipName": "producto"
+    }
+  ],
+  "changelogDate": "20210307193527",
+  "entityTableName": "categoria",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["tienda", "producto"],
+  "microserviceName": "producto"
+}

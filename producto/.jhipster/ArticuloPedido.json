@@ -1,0 +1,53 @@
+{
+  "name": "ArticuloPedido",
+  "fields": [
+    {
+      "fieldName": "cantidad",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "EstadoArticuloPedido",
+      "fieldValues": "DISPONIBLE,FUERA_DE_STOCK,NO_DISPONIBLE",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "producto",
+      "otherEntityRelationshipName": "articuloPedido",
+      "relationshipValidateRules": "required",
+      "relationshipName": "producto",
+      "otherEntityField": "nombre"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pedido",
+      "otherEntityRelationshipName": "articuloPedido",
+      "relationshipValidateRules": "required",
+      "relationshipName": "pedido",
+      "otherEntityField": "idPedido"
+    }
+  ],
+  "changelogDate": "20210307193727",
+  "entityTableName": "articulo_pedido",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["tienda", "producto"],
+  "microserviceName": "producto"
+}

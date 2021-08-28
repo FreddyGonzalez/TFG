@@ -1,0 +1,29 @@
+{
+  "tiendaApp": {
+    "comentarioComentario": {
+      "home": {
+        "title": "Comentarios",
+        "createLabel": "Crear nuevo Comentario",
+        "createOrEditLabel": "Crear o editar Comentario",
+        "search": "Buscar Comentario",
+        "notFound": "Ningún Comentarios encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Comentario {{ id }}?"
+      },
+      "detail": {
+        "title": "Comentario"
+      },
+      "idComentario": "Id Comentario",
+      "descripcion": "Descripcion",
+      "productoId": "Producto Id"
+    }
+  },
+  "comentarioApp": {
+    "comentarioComentario": {
+      "created": "Un nuevo Comentario ha sido creado con el identificador {{ param }}",
+      "updated": "Un Comentario ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Comentario ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

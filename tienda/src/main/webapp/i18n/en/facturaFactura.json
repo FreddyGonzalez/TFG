@@ -1,0 +1,35 @@
+{
+  "tiendaApp": {
+    "facturaFactura": {
+      "home": {
+        "title": "Facturas",
+        "createLabel": "Create a new Factura",
+        "createOrEditLabel": "Create or edit a Factura",
+        "search": "Search for Factura",
+        "notFound": "No Facturas found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Factura {{ id }}?"
+      },
+      "detail": {
+        "title": "Factura"
+      },
+      "idFactura": "Id Factura",
+      "fecha": "Fecha",
+      "detalles": "Detalles",
+      "estado": "Estado",
+      "metodoPago": "Metodo Pago",
+      "fechaPago": "Fecha Pago",
+      "total": "Total",
+      "idPedidoProducto": "Id Pedido Producto",
+      "envio": "Envio"
+    }
+  },
+  "facturaApp": {
+    "facturaFactura": {
+      "created": "A new Factura is created with identifier {{ param }}",
+      "updated": "A Factura is updated with identifier {{ param }}",
+      "deleted": "A Factura is deleted with identifier {{ param }}"
+    }
+  }
+}

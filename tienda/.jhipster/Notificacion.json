@@ -1,0 +1,48 @@
+{
+  "name": "Notificacion",
+  "fields": [
+    {
+      "fieldName": "fecha",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "detalles",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fechaEnvio",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tipo",
+      "fieldType": "TipoNotificacion",
+      "fieldValues": "EMAIL,SMS",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "clienteId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "productoId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20210307194027",
+  "entityTableName": "notificacion",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["tienda", "notificacion"],
+  "microserviceName": "notificacion"
+}

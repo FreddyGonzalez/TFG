@@ -1,0 +1,10 @@
+{
+  "tiendaApp": {
+    "EstadoPedido": {
+      "null": "",
+      "COMPLETADO": "COMPLETADO",
+      "PENDIENTE": "PENDIENTE",
+      "CANCELADO": "CANCELADO"
+    }
+  }
+}

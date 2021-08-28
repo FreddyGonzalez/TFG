@@ -1,0 +1,109 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-articulo-pedido-heading" jhiTranslate="tiendaApp.productoArticuloPedido.home.createOrEditLabel">Create or edit a Articulo Pedido</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tiendaApp.productoArticuloPedido.cantidad" for="field_cantidad">Cantidad</label>
+                    <input type="number" class="form-control" name="cantidad" id="field_cantidad"
+                           formControlName="cantidad"/>
+                    <div *ngIf="editForm.get('cantidad')!.invalid && (editForm.get('cantidad')!.dirty || editForm.get('cantidad')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cantidad')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cantidad')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('cantidad')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tiendaApp.productoArticuloPedido.total" for="field_total">Total</label>
+                    <input type="number" class="form-control" name="total" id="field_total"
+                           formControlName="total"/>
+                    <div *ngIf="editForm.get('total')!.invalid && (editForm.get('total')!.dirty || editForm.get('total')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('total')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('total')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('total')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tiendaApp.productoArticuloPedido.estado" for="field_estado">Estado</label>
+                    <select class="form-control" name="estado" formControlName="estado" id="field_estado">
+                        <option value="DISPONIBLE">{{ 'tiendaApp.EstadoArticuloPedido.DISPONIBLE' | translate }}</option>
+                        <option value="FUERA_DE_STOCK">{{ 'tiendaApp.EstadoArticuloPedido.FUERA_DE_STOCK' | translate }}</option>
+                        <option value="NO_DISPONIBLE">{{ 'tiendaApp.EstadoArticuloPedido.NO_DISPONIBLE' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('estado')!.invalid && (editForm.get('estado')!.dirty || editForm.get('estado')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('estado')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tiendaApp.productoArticuloPedido.producto" for="field_producto">Producto</label>
+                    <select class="form-control" id="field_producto" name="producto" formControlName="producto">
+                        <option *ngIf="!editForm.get('producto')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="productoOption.id === editForm.get('producto')!.value?.id ? editForm.get('producto')!.value : productoOption" *ngFor="let productoOption of productos; trackBy: trackById">{{ productoOption.nombre }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('producto')!.invalid && (editForm.get('producto')!.dirty || editForm.get('producto')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('producto')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tiendaApp.productoArticuloPedido.pedido" for="field_pedido">Pedido</label>
+                    <select class="form-control" id="field_pedido" name="pedido" formControlName="pedido">
+                        <option *ngIf="!editForm.get('pedido')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="pedidoOption.id === editForm.get('pedido')!.value?.id ? editForm.get('pedido')!.value : pedidoOption" *ngFor="let pedidoOption of pedidos; trackBy: trackById">{{ pedidoOption.idPedido }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('pedido')!.invalid && (editForm.get('pedido')!.dirty || editForm.get('pedido')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('pedido')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "tiendaApp": {
+    "EstadoFactura": {
+      "null": "",
+      "PAGADO": "PAGADO",
+      "EMITIDO": "EMITIDO",
+      "CANCELADO": "CANCELADO"
+    }
+  }
+}

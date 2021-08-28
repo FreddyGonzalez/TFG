@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cliente">
+            <h2><span jhiTranslate="tiendaApp.cliente.detail.title">Cliente</span> {{ cliente.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tiendaApp.cliente.idCliente">Id Cliente</span></dt>
+                <dd>
+                    <span>{{ cliente.idCliente }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.cliente.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{ cliente.nombre }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.cliente.apellido">Apellido</span></dt>
+                <dd>
+                    <span>{{ cliente.apellido }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.cliente.genero">Genero</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tiendaApp.Genero.' + cliente.genero }}">{{ cliente.genero }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.cliente.email">Email</span></dt>
+                <dd>
+                    <span>{{ cliente.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.cliente.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{ cliente.telefono }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.cliente.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{ cliente.direccion }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.cliente.ciudad">Ciudad</span></dt>
+                <dd>
+                    <span>{{ cliente.ciudad }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.cliente.pais">Pais</span></dt>
+                <dd>
+                    <span>{{ cliente.pais }}</span>
+                </dd>
+                <dt><span jhiTranslate="tiendaApp.cliente.user">User</span></dt>
+                <dd>
+                    {{ cliente.user?.login }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cliente', cliente.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

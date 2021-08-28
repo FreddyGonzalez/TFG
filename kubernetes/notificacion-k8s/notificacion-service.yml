@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: notificacion
+  namespace: jhipster
+  labels:
+    app: notificacion
+spec:
+  selector:
+    app: notificacion
+  ports:
+    - name: http
+      port: 8083

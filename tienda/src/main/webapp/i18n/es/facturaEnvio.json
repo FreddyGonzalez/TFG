@@ -1,0 +1,30 @@
+{
+  "tiendaApp": {
+    "facturaEnvio": {
+      "home": {
+        "title": "Envios",
+        "createLabel": "Crear nuevo Envio",
+        "createOrEditLabel": "Crear o editar Envio",
+        "search": "Buscar Envio",
+        "notFound": "Ningún Envios encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Envio {{ id }}?"
+      },
+      "detail": {
+        "title": "Envio"
+      },
+      "idEnvio": "Id Envio",
+      "fecha": "Fecha",
+      "detalles": "Detalles",
+      "factura": "Factura"
+    }
+  },
+  "facturaApp": {
+    "facturaEnvio": {
+      "created": "Un nuevo Envio ha sido creado con el identificador {{ param }}",
+      "updated": "Un Envio ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Envio ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

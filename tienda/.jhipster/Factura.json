@@ -1,0 +1,66 @@
+{
+  "name": "Factura",
+  "fields": [
+    {
+      "fieldName": "idFactura",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fecha",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "detalles",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "EstadoFactura",
+      "fieldValues": "PAGADO,EMITIDO,CANCELADO",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "metodoPago",
+      "fieldType": "MetodoPago",
+      "fieldValues": "TARJETA_CREDITO,PAYPAL",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fechaPago",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "idPedidoProducto",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "envio",
+      "otherEntityRelationshipName": "factura",
+      "relationshipName": "envio"
+    }
+  ],
+  "changelogDate": "20210307193827",
+  "entityTableName": "factura",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["tienda", "factura"],
+  "microserviceName": "factura"
+}

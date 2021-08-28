@@ -1,0 +1,30 @@
+{
+  "tiendaApp": {
+    "facturaEnvio": {
+      "home": {
+        "title": "Envios",
+        "createLabel": "Create a new Envio",
+        "createOrEditLabel": "Create or edit a Envio",
+        "search": "Search for Envio",
+        "notFound": "No Envios found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Envio {{ id }}?"
+      },
+      "detail": {
+        "title": "Envio"
+      },
+      "idEnvio": "Id Envio",
+      "fecha": "Fecha",
+      "detalles": "Detalles",
+      "factura": "Factura"
+    }
+  },
+  "facturaApp": {
+    "facturaEnvio": {
+      "created": "A new Envio is created with identifier {{ param }}",
+      "updated": "A Envio is updated with identifier {{ param }}",
+      "deleted": "A Envio is deleted with identifier {{ param }}"
+    }
+  }
+}

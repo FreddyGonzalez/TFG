@@ -1,0 +1,9 @@
+{
+  "tiendaApp": {
+    "TipoNotificacion": {
+      "null": "",
+      "EMAIL": "EMAIL",
+      "SMS": "SMS"
+    }
+  }
+}

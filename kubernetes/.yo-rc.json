@@ -1,0 +1,16 @@
+{
+  "generator-jhipster": {
+    "appsFolders": ["comentario", "factura", "notificacion", "producto", "tienda"],
+    "directoryPath": "../",
+    "serviceDiscoveryType": "eureka",
+    "jwtSecretKey": "OTcxYTE3YWZiOTRhNTI4ZTY2NjI1ODcwNWM2OWJhMGNlNDc4OTZhODBiZGRlNTVmODBiMmM2MTYxMjdjNDhjNDM1ODg4NzY1YzQ3N2NhZDI2NzQzMTgyM2RmMWM3NGFkNjVmZQ==",
+    "dockerRepositoryName": "gcr.io/jhipster-kubernetes-323618",
+    "dockerPushCommand": "gcloud docker push",
+    "kubernetesNamespace": "jhipster",
+    "kubernetesServiceType": "LoadBalancer",
+    "kubernetesUseDynamicStorage": false,
+    "ingressDomain": "",
+    "monitoring": "elk",
+    "istio": false
+  }
+}

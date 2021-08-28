@@ -1,0 +1,41 @@
+{
+  "name": "Pedido",
+  "fields": [
+    {
+      "fieldName": "idPedido",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fechaPedido",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "EstadoPedido",
+      "fieldValues": "COMPLETADO,PENDIENTE,CANCELADO",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "articuloPedido",
+      "otherEntityRelationshipName": "pedido",
+      "relationshipName": "articuloPedido"
+    }
+  ],
+  "changelogDate": "20210307193627",
+  "entityTableName": "pedido",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["tienda", "producto"],
+  "microserviceName": "producto"
+}
