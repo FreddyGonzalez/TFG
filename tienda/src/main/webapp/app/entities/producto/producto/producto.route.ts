@@ -39,7 +39,6 @@ export const productoRoute: Routes = [
     path: '',
     component: ProductoComponent,
     data: {
-      authorities: [Authority.USER],
       defaultSort: 'id,asc',
       pageTitle: 'tiendaApp.productoProducto.home.title',
     },
@@ -64,7 +63,7 @@ export const productoRoute: Routes = [
       producto: ProductoResolve,
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.ADMIN],
       pageTitle: 'tiendaApp.productoProducto.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -76,7 +75,7 @@ export const productoRoute: Routes = [
       producto: ProductoResolve,
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.ADMIN],
       pageTitle: 'tiendaApp.productoProducto.home.title',
     },
     canActivate: [UserRouteAccessService],
