@@ -20,7 +20,8 @@
       "precio": "Precio",
       "talla": "Talla",
       "imagen": "Imagen",
-      "categoria": "Categoria"
+      "categoria": "Categoria",
+      "titulo": "Lo Mas Vendido"
     }
   },
   "productoApp": {

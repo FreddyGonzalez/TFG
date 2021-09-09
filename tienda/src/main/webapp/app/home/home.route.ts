@@ -8,5 +8,6 @@ export const HOME_ROUTE: Route = {
   data: {
     authorities: [],
     pageTitle: 'home.title',
+    defaultSort: 'id,asc',
   },
 };

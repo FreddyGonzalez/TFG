@@ -8,12 +8,12 @@
       "entities": {
         "main": "Entities",
         "cliente": "Cliente",
-        "productoProducto": "Producto",
-        "productoCategoria": "Categoria",
-        "productoPedido": "Pedido",
+        "productoProducto": "Product",
+        "productoCategoria": "Category",
+        "productoPedido": "Orders",
         "productoArticuloPedido": "Articulo Pedido",
-        "facturaFactura": "Factura",
-        "facturaEnvio": "Envio",
+        "facturaFactura": "Invoice",
+        "facturaEnvio": "Deliver",
         "notificacionNotificacion": "Notificacion",
         "comentarioComentario": "Comentario",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
@@ -53,7 +53,18 @@
       "confirmpassword.label": "New password confirmation",
       "confirmpassword.placeholder": "Confirm the new password",
       "email.label": "Email",
-      "email.placeholder": "Your email"
+      "name.label": "Name",
+      "lastname.label": "Last Name",
+      "gender.label": "Gender",
+      "phone.label": "Phone Number",
+      "address.label": "Address",
+      "country.label": "Country",
+      "email.placeholder": "Your email",
+      "name.placeholder": "Your name",
+      "lastname.placeholder": "Your last name",
+      "phone.placeholder": "Your phone number",
+      "address.placeholder": "Your address",
+      "country.placeholder": "Your country"
     },
     "messages": {
       "info": {
@@ -87,6 +98,30 @@
           "invalid": "Your email is invalid.",
           "minlength": "Your email is required to be at least 5 characters.",
           "maxlength": "Your email cannot be longer than 50 characters."
+        },
+        "name": {
+          "required": "Your name is required.",
+          "maxlength": "Your name cannot be longer than 30 characters."
+        },
+        "lastname": {
+          "required": "Your last name is required.",
+          "maxlength": "Your last name cannot be longer than 30 characters."
+        },
+        "gender": {
+          "required": "Your gender is required."
+        },
+        "phone": {
+          "required": "Your phone nmber is required.",
+          "maxlength": "Your phone nmber cannot be longer than 9 digits.",
+          "pattern": "This field can only contain digits ."
+        },
+        "address": {
+          "required": "Your address is required.",
+          "maxlength": "Your address cannot be longer than 50 characters."
+        },
+        "country": {
+          "required": "Your country is required.",
+          "maxlength": "Your country cannot be longer than 50 characters."
         }
       }
     },

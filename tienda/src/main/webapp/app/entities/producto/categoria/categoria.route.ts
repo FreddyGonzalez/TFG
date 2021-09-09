@@ -53,6 +53,7 @@ export const categoriaRoute: Routes = [
     data: {
       authorities: [Authority.USER],
       pageTitle: 'tiendaApp.productoCategoria.home.title',
+      defaultSort: 'id,asc',
     },
     canActivate: [UserRouteAccessService],
   },

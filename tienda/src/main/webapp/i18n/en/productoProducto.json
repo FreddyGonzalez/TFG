@@ -2,32 +2,33 @@
   "tiendaApp": {
     "productoProducto": {
       "home": {
-        "title": "Productos",
-        "createLabel": "Create a new Producto",
-        "createOrEditLabel": "Create or edit a Producto",
-        "search": "Search for Producto",
-        "notFound": "No Productos found"
+        "title": "Products",
+        "createLabel": "Create a new Product",
+        "createOrEditLabel": "Create or edit a Product",
+        "search": "Search for Product",
+        "notFound": "No Products found"
       },
       "delete": {
-        "question": "Are you sure you want to delete Producto {{ id }}?"
+        "question": "Are you sure you want to delete Product {{ id }}?"
       },
       "detail": {
-        "title": "Producto",
+        "title": "Product",
         "review": "Reviews"
       },
-      "nombre": "Nombre",
-      "descripcion": "Descripcion",
-      "precio": "Precio",
-      "talla": "Talla",
+      "nombre": "Name",
+      "descripcion": "Description",
+      "precio": "Price",
+      "talla": "Size",
       "imagen": "Imagen",
-      "categoria": "Categoria"
+      "categoria": "Category",
+      "titulo": "The Best Sellers"
     }
   },
   "productoApp": {
     "productoProducto": {
-      "created": "A new Producto is created with identifier {{ param }}",
-      "updated": "A Producto is updated with identifier {{ param }}",
-      "deleted": "A Producto is deleted with identifier {{ param }}"
+      "created": "A new Product is created with identifier {{ param }}",
+      "updated": "A Product is updated with identifier {{ param }}",
+      "deleted": "A Product is deleted with identifier {{ param }}"
     }
   }
 }

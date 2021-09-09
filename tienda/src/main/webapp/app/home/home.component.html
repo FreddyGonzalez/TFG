@@ -1,19 +1,126 @@
+<div class="row justify-content-end">
+    <div class="col-md-6">
+        <form name="searchForm" class="form-inline">
+            <div class="input-group w-100 mt-3">
+                <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'tiendaApp.productoProducto.home.search' | translate }}">
+                <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                    <fa-icon icon="trash-alt"></fa-icon>
+                </button>
+
+                <button class="input-group-append btn btn-primary" (click)="search(currentSearch)">
+                    <fa-icon icon="search"></fa-icon>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row justify-content-start">
+    <h1 class="display-5" jhiTranslate="tiendaApp.productoProducto.titulo">Productos Destacados</h1>
+</div>
+<div class="row justify-content-center">
+    <div class="col justify-content-center">
+        <ngb-carousel>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img src="../../content/images/woman1.jpg" alt="Angular Carousel 1"  >
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img src="../../content/images/woman2.jpg" alt="Angular Carousel 2"  > 
+              </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+</div>
 <div class="row">
+    <div class="col">
 
-    <div class="col-md-9">
-        <h1 class="display-4">Estudio y desarrollo web del framework JHipster</h1>
-
-        <div [ngSwitch]="isAuthenticated()">
-            <div class="alert alert-success" *ngSwitchCase="true">
-                <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message"
-                    [translateValues]="{ username: account.login }">You are logged in as user "{{ account.login }}".</span>
-                    <span >Esta es la pagina web creada como apoyo del trabajo de fin de grado llamado 'Estudio y desarrollo web del framework JHipster'. La pagina web es una demostracion, no una pagina final con todas las caracteristicas que puede tener una pagina de una tienda, lo que se a buscado ha sido enseñar ha sido las modificaciones mas significativas </span>
+        <div class="alert alert-warning" id="no-result" *ngIf="productos?.length === 0">
+            <span jhiTranslate="tiendaApp.productoProducto.home.notFound">No productos found</span>
+        </div>
+    
+        <div class="row justify-content-end">
+            <div class="col-md-6">
+                <div class="table-responsive" id="entities" *ngIf="productos && productos.length > 0">
+                    <table class="table table-striped" aria-describedby="page-heading">
+                        <thead>
+                            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                                <th scope="col"  jhiSortBy="precio"><span jhiTranslate="tiendaApp.productoProducto.precio">Precio</span> <fa-icon icon="sort"></fa-icon></th>
+                                <th scope="col"  jhiSortBy="talla"><span jhiTranslate="tiendaApp.productoProducto.talla">Talla</span> <fa-icon icon="sort"></fa-icon></th>
+                                <th scope="col"  jhiSortBy="categoria.nombre"><span jhiTranslate="tiendaApp.productoProducto.categoria">Categoria</span> <fa-icon icon="sort"></fa-icon></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
-
-            <div class="alert alert-warning" *ngSwitchCase="false">
-                <span >Esta es la pagina web creada como apoyo del trabajo de fin de grado llamado 'Estudio y desarrollo web del framework JHipster'. La pagina web es una demostracion, no una pagina final con todas las caracteristicas que puede tener una pagina de una tienda, lo que se a buscado ha sido enseñar ha sido las modificaciones mas significativas </span>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-3">
+                <div class="table-responsive table-borderless" *ngIf="categorias && categorias.length > 0"> 
+                    <table class="table primary table-hover" aria-describedby="page-heading">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th jhiTranslate="global.menu.entities.productoCategoria" class="text-center">Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let categoria of categorias; trackBy: trackId"><td><a [routerLink]="['/categoria', categoria.id, 'view']">{{ categoria.nombre }}</a></td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
+            
+            <div class="col-md-9" *ngIf="productos && productos.length > 0">
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let producto of (productos | pureFilter:currentSearch:'nombre'); trackBy: trackId">
+                        <div class="row">
+                            <div class="col-md-3">
+                                  <img [src]="'data:' + producto.imagenContentType + ';base64,' + producto.imagen" style="max-height:150px;" alt="producto imagen" />
+                            </div>
+                            <div class="col col-xs-12 ">
+                                <div class="d-inline-flex w-100 justify-content-between">
+                                    <a [routerLink]="['/producto', producto.id, 'view']">
+                                    <h5 class="mb-1">{{ producto.nombre }}</h5>
+                                    </a>
+                                    <small *ngIf="producto.categoria">
+                                    <a [routerLink]="['/categoria', producto.categoria?.id, 'view']" >{{ producto.categoria?.nombre }}</a>
+                                    </small>
+                                </div>
+                                <small class="mb-1">{{ producto.descripcion }}</small>
+                                <p class="mb-1">Precio: {{ producto.precio | currency: 'EUR' }}</p>
+                                <small>
+                                    Size:
+                                    <span jhiTranslate="{{ 'tiendaApp.Talla.' + producto.talla }}">{{ producto.talla }}</span>
+                                </small>
+                                <div class="d-inline-flex w-100 justify-content-between">
+                                    <button type="submit" [routerLink]="['/producto', producto.id, 'view']" class="btn btn-primary btn-sm">
+                                        <fa-icon icon="eye"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Comprar</span>
+                                    </button>
+                                </div>
+                                <div class="btn-group" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                                    <button type="submit" [routerLink]="['/producto', producto.id, 'edit']" class="btn btn-primary btn-sm">
+                                        <fa-icon icon="pencil-alt"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <div *ngIf="productos && productos.length > 0">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+    
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+            </div>
         </div>
 
     </div>

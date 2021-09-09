@@ -10,7 +10,7 @@
         "cliente": "Cliente",
         "productoProducto": "Producto",
         "productoCategoria": "Categoria",
-        "productoPedido": "Pedido",
+        "productoPedido": "Pedidos",
         "productoArticuloPedido": "Articulo Pedido",
         "facturaFactura": "Factura",
         "facturaEnvio": "Envio",
@@ -53,7 +53,18 @@
       "confirmpassword.label": "Confirmación de la nueva contraseña",
       "confirmpassword.placeholder": "Confirmación de la nueva contraseña",
       "email.label": "Correo electrónico",
-      "email.placeholder": "Su correo electrónico"
+      "name.label": "Nombre",
+      "lastname.label": "Apellido",
+      "gender.label": "Genero",
+      "phone.label": "Número de Teléfono",
+      "address.label": "Dirección",
+      "country.label": "País",
+      "email.placeholder": "Su correo electrónico",
+      "name.placeholder": "Su nombre",
+      "lastname.placeholder": "Su apellido",
+      "phone.placeholder": "Su número de teléfono",
+      "address.placeholder": "Su dirección",
+      "country.placeholder": "Su país"
     },
     "messages": {
       "info": {
@@ -87,6 +98,30 @@
           "invalid": "Su correo electrónico no es válido.",
           "minlength": "Se requiere que su correo electrónico tenga por lo menos 5 caracteres",
           "maxlength": "Su correo electrónico no puede tener más de 50 caracteres"
+        },
+        "name": {
+          "required": "Se requiere un nombre.",
+          "maxlength": "Su nombre no puede tener más de 30 caracteres."
+        },
+        "lastname": {
+          "required": "Se requiere un apellido.",
+          "maxlength": "Su apellido no puede tener más de 30 caracteres."
+        },
+        "gender": {
+          "required": "Se requiere un genero."
+        },
+        "phone": {
+          "required": "Se requiere un número de teléfono.",
+          "maxlength": "Su número de teléfono no puede tener más de 9 números.",
+          "pattern": "Este campo solo puede tener números."
+        },
+        "address": {
+          "required": "Se requiere una direccón.",
+          "maxlength": "Su dirección no puede tener más de 50 caracteres."
+        },
+        "county": {
+          "required": "Se requiere un país.",
+          "maxlength": "Su país no puede tener más de 50 caracteres."
         }
       }
     },
